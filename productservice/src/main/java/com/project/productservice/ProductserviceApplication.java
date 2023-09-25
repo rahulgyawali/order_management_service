@@ -1,4 +1,4 @@
-package com.ordermanagement.productservice;
+package com.project.productservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
