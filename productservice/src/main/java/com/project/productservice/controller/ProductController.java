@@ -1,10 +1,11 @@
 package com.project.productservice.controller;
 
-import com.project.productservice.model.Product;
 import com.project.productservice.request.ProductAddRequest;
 import com.project.productservice.response.ProductResponse;
 import com.project.productservice.service.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,9 +13,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/product")
+@RequiredArgsConstructor
 public class ProductController {
 
-    private ProductService productService;
+    private final ProductService productService;
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void addProduct(@RequestBody ProductAddRequest  request){
@@ -23,7 +25,7 @@ public class ProductController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<ProductResponse> getProduct(@RequestBody ProductAddRequest  request){
+    public List<ProductResponse> getProduct(){
         return  productService.getAllProduct();
     }
 }

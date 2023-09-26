@@ -4,6 +4,9 @@ import com.project.productservice.dao.IProductDao;
 import com.project.productservice.model.Product;
 import com.project.productservice.request.ProductAddRequest;
 import com.project.productservice.response.ProductResponse;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +17,10 @@ import java.util.logging.Logger;
 
 @Slf4j
 @Service
-public class ProductService implements IProductService{
+@RequiredArgsConstructor
+public class ProductService{
 
-    private IProductDao productDao;
-
+    private final IProductDao productDao;
     public void addProduct(ProductAddRequest request){
         Product product =  Product.builder()
                             .name(request.getName())
